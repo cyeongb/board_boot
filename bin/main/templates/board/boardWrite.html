@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}"
+	href="../../css/style.css"></link>
+</head>
+<body>
+	<div class="container">
+		<h2>게시판 글 등록하기</h2>
+		<!--  입력된 값을 서버로 전달하기 위해 form태그를 이용. action 속성에는 요청을 수행할 서버의 주소를 입력한다. -->
+		<form id="frm" method="post" action="/board/insertBoard.do">
+			<table class="board_detail">
+				<tr>
+					<td><input type="text" id="title" name="title"></td>
+				</tr>
+				<tr>
+				    <!-- 해당 내용들은 name값을 이용해서 서버에 전송한다.  -->
+					<td colspan="2"><textarea id="contents" name="contents"></textarea>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" id="submit" value="글 등록하기" class="btn">
+		</form>
+
+	</div>
+
+</body>
+</html>

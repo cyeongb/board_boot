@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<!-- tymeleaf를 사용하기위한 th namespace를 선언 -->
+<head>
+<meta charset="UTF-8">
+<title>board</title>
+<style>
+#contents{
+margin:0px;
+width:921px;
+height:143px;
+}
+</style>
+<link rel="stylesheet" th:href="@{/css/style.css}"></link>
+</head>
+<body>
+	<div class="container">
+		<h2>게시판 상세보기</h2>
+		<table class="board_list">
+			<colgroup>
+				<col width="15%" />
+				<col width="*" />
+				<col width="15%" />
+				<col width="20%" />
+			</colgroup>
+
+			<tbody>
+				<tr>
+					<th scope="row">글 번호</th>
+					<td th:text="${board.boardIdx}"></td>
+					<th scope="row">조회수</th>
+					<td th:text="${board.hitCnt}"></td>
+				</tr>
+				<tr>
+					<th scope="row">작성자</th>
+					<td th:text="${board.creatorId}"></td>
+					<th scope="row">작성일</th>
+					<td th:text="${board.createdTime}"></td>
+				</tr>
+				<tr>
+					<th scope="row">제목</th>
+					<td colspan="3"><input type="text" id="title" name="title"
+						th:value="${board.title}"></input></td>
+				</tr>
+				<tr>
+					<td colspan="4" class="view_text"><textarea title="내용"
+							id="contents" name="contents" th:text="${board.contents}"></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/board/openBoardList.do" class="btn">글목록으로 이동</a>
+	</div>
+
+</body>
+</html>
